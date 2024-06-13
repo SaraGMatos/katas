@@ -15,9 +15,11 @@ function isValidSubsequence(array, sequence) {
       if (i === 0 && currentNumber === arrayNumber) {
         index = j;
         checkArray.push(arrayNumber);
+        continue;
       } else if (i !== 0 && currentNumber === arrayNumber && j > index) {
         index = j;
         checkArray.push(arrayNumber);
+        continue;
       }
     }
   }
@@ -27,3 +29,5 @@ function isValidSubsequence(array, sequence) {
     (sequence.length > 1 && allEqual(sequence))
   );
 }
+
+//? Solution 1
