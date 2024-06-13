@@ -51,7 +51,7 @@ function isValidSubsequence_2(array, sequence) {
 }
 
 //? Solution 2
-
+//? O(n) time | 0(1) space
 // Using for loop
 function isValidSubsequence_3(array, sequence) {
   let seqIndex = 0;
@@ -68,4 +68,15 @@ function isValidSubsequence_3(array, sequence) {
   }
 
   return seqIndex === sequence.length;
+}
+
+//! Sorted Square Array
+
+//? My solution
+
+function sortedSquaredArray(array) {
+  const squaredArray = array.map((num) => num * num);
+  const sortedArray = squaredArray.sort((a, b) => a - b);
+
+  return sortedArray;
 }
