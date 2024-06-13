@@ -80,3 +80,40 @@ function sortedSquaredArray(array) {
 
   return sortedArray;
 }
+
+//! Tournament Winner
+
+//? My solution
+
+function tournamentWinner(competitions, results) {
+  const table = {};
+
+  for (let i = 0; i < results.length; i++) {
+    const result = results[i];
+
+    if (result === 0) {
+      if (table.hasOwnProperty(competitions[i][1])) {
+        table[competitions[i][1]] += 3;
+        console.log(competitions[i][1]);
+      } else {
+        table[competitions[i][1]] = 3;
+        console.log(competitions[i][1]);
+      }
+    }
+    if (result === 1) {
+      if (table.hasOwnProperty(competitions[i][0])) {
+        table[competitions[i][0]] += 3;
+        console.log(competitions[i][0]);
+      } else {
+        table[competitions[i][0]] = 3;
+        console.log(competitions[i][0]);
+      }
+    }
+  }
+
+  const winner = Object.keys(table).reduce((a, b) =>
+    table[a] > table[b] ? a : b
+  );
+
+  return winner;
+}
