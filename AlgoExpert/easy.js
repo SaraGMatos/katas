@@ -94,19 +94,15 @@ function tournamentWinner(competitions, results) {
     if (result === 0) {
       if (table.hasOwnProperty(competitions[i][1])) {
         table[competitions[i][1]] += 3;
-        console.log(competitions[i][1]);
       } else {
         table[competitions[i][1]] = 3;
-        console.log(competitions[i][1]);
       }
     }
     if (result === 1) {
       if (table.hasOwnProperty(competitions[i][0])) {
         table[competitions[i][0]] += 3;
-        console.log(competitions[i][0]);
       } else {
         table[competitions[i][0]] = 3;
-        console.log(competitions[i][0]);
       }
     }
   }
