@@ -181,3 +181,19 @@ function transposeMatrix(matrix) {
 
   return newMatrix;
 }
+
+//? Solution 2
+
+function transposeMatrix2(matrix) {
+  const newMatrix = [];
+
+  for (const column in matrix[0]) {
+    newRow = [];
+    for (const row in matrix) {
+      newRow.push(matrix[row][column]);
+    }
+    newMatrix.push(newRow);
+  }
+
+  return newMatrix;
+}
