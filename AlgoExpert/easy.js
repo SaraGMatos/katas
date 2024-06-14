@@ -140,6 +140,9 @@ function tournamentWinner(competitions, results) {
   Thus, you can make up to 7 cents.
 */
 
+//? If coin > change + 1, it means we cannot make change + 1 change, and we return change + 1
+//? If coin <= change + 1, it means we can make change + 1 change
+
 function nonConstructibleChange(coins) {
   const sortedCoins = coins.sort((a, b) => a - b);
   let currentChange = 0;
