@@ -156,3 +156,28 @@ function nonConstructibleChange(coins) {
   }
   return currentChange + 1;
 }
+
+//! TRANSPOSE MATRIX
+
+//? My solution
+
+function transposeMatrix(matrix) {
+  const newMatrix = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    const nestedArray = matrix[i];
+
+    if (i === 0) {
+      for (const nestedArrayValue of nestedArray) {
+        newMatrix.push([nestedArrayValue]);
+      }
+    } else {
+      for (let j = 0; j < nestedArray.length; j++) {
+        const nestedArrayValue = nestedArray[j];
+        newMatrix[j].push(nestedArrayValue);
+      }
+    }
+  }
+
+  return newMatrix;
+}
