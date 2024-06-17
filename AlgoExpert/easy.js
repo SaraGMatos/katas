@@ -199,3 +199,7 @@ function transposeMatrix2(matrix) {
 }
 
 //! FIND CLOSES VALUE IN BST
+
+//? Solution 1
+
+function findClosestValueInBst(tree, target) {}
