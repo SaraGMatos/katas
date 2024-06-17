@@ -200,25 +200,34 @@ function transposeMatrix2(matrix) {
 
 //! FIND CLOSES VALUE IN BST
 
-//? Solution 1
+//? Solution 1 (recursive)
 
 function findClosestValueInBst(tree, target) {
   return findClosestValueInBstHelper(tree, target, Number.MAX_VALUE);
 }
 
 function findClosestValueInBstHelper(tree, target, closest) {
+  // Base case
   if (tree === null) {
     return closest;
   }
 
+  // If the absolute value of the target - closest is greater than the absolute value of target - current tree value,
+  // that means that the second operation resolves in a smaller number and therefore will take us closer to the target
   if (Math.abs(target - closest) > Math.abs(target - tree.value)) {
     closest = tree.value;
   }
-
+  // If the target is smaller than the current tree value, that means that we want to go to the left branch
+  // (which will be a smaller number than the current tree value)
   if (target < tree.value) {
     return findClosestValueInBstHelper(tree.left, target, closest);
+
+    // If the target is bigger than the current tree value, that means that we want to go to the right branch
+    // (which will be a bigger number than the current tree value)
   } else if (target > tree.value) {
     return findClosestValueInBstHelper(tree.right, target, closest);
+
+    // This else cover the case where the current tree value is equal to the target.
   } else {
     return closest;
   }
