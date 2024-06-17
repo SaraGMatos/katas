@@ -197,3 +197,5 @@ function transposeMatrix2(matrix) {
 
   return newMatrix;
 }
+
+//! FIND CLOSES VALUE IN BST
