@@ -232,3 +232,28 @@ function findClosestValueInBstHelper(tree, target, closest) {
     return closest;
   }
 }
+
+//? Solution 2 (iterative)
+
+function findClosestValueInBst2(tree, target) {
+  return findClosestValueInBstHelper2(tree, target, Number.MAX_VALUE);
+}
+
+function findClosestValueInBstHelper2(tree, target, closest) {
+  let currentNode = tree;
+
+  while (currentNode !== null) {
+    if (Math.abs(target - closest) > Math.abs(target - currentNode.value)) {
+      closest = currentNode.value;
+    }
+
+    if (target < currentNode.value) {
+      currentNode = currentNode.left;
+    } else if (target > currentNode.value) {
+      currentNode = currentNode.right;
+    } else {
+      break;
+    }
+  }
+  return closest;
+}
