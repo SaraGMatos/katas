@@ -269,6 +269,7 @@ function branchSums(root) {
 }
 
 function calculateBranchSums(node, runningSum, sums) {
+  // Covers case for when any single node is null
   if (node === null) {
     return;
   }
