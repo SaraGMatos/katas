@@ -287,4 +287,32 @@ function calculateBranchSums(node, runningSum, sums) {
 
 //! NODE DEPTHS
 
-//? Solution 1 (recursive)
+//? Solution 1 (iterative)
+
+function nodeDepths(root) {
+  let sumOfDepths = 0;
+  // Below we initialise the first node, which is the top one
+  let stack = [{ node: root, depth: 0 }];
+
+  while (stack.length > 0) {
+    // We can store the value of a popped element in a variable
+    let nodeInfo = stack.pop();
+    // We destructure the properties of the popped object to access them easily
+    const { node, depth } = nodeInfo;
+
+    // If the node is null, just skip it
+    if (node === null) {
+      continue;
+    }
+
+    // Sum the depth of the current node
+    sumOfDepths += depth;
+
+    // Add the left and right nodes to the stack, adding depth + 1 to the depth to ensure it is keeping up with levels
+    // This will also ensure that the stack is kept > 0 until it's finished the tree
+    stack.push({ node: node.left, depth: depth + 1 });
+    stack.push({ node: node.right, depth: depth + 1 });
+  }
+
+  return sumOfDepths;
+}
