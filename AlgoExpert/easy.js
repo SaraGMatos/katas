@@ -316,3 +316,16 @@ function nodeDepths(root) {
 
   return sumOfDepths;
 }
+
+//? Solution 2 (recursive)
+
+function nodeDepths2(root, depth = 0) {
+  // Handle base case; if root is null, don't add 1.
+  if (root === null) {
+    return 0;
+  }
+
+  return (
+    depth + nodeDepths(root.left, depth + 1) + nodeDepths(root.right, depth + 1)
+  );
+}
