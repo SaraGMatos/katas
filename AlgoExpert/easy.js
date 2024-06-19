@@ -332,7 +332,7 @@ function nodeDepths2(root, depth = 0) {
 
 //! EVALUATE EXPRESSION TREE
 
-//? Solution 1
+//? Solution 1 (recursive)
 
 function traverse(node) {
   if (node.left === null && node.right === null) {
@@ -360,4 +360,31 @@ function traverse(node) {
 function evaluateExpressionTree(tree) {
   const result = traverse(tree);
   return result;
+}
+
+//? Solution 2 (recursive)
+
+function evaluateExpressionTree2(tree) {
+  if (tree.value >= 0) {
+    return tree.value;
+  }
+
+  let leftValue = evaluateExpressionTree2(tree.left);
+  let rightValue = evaluateExpressionTree2(tree.right);
+
+  if (tree.value === -1) {
+    return leftValue + rightValue;
+  }
+
+  if (tree.value === -2) {
+    return leftValue - rightValue;
+  }
+
+  if (tree.value === -3) {
+    return leftValue / rightValue < 0
+      ? Math.ceil(leftValue / rightValue)
+      : Math.floor(leftValue / rightValue);
+  }
+
+  return leftValue * rightValue;
 }
