@@ -331,3 +331,31 @@ function nodeDepths2(root, depth = 0) {
 }
 
 //! EVALUATE EXPRESSION TREE
+
+//? Solution 1
+
+function traverse(node) {
+  if (node.left === null && node.right === null) {
+    return node.value;
+  }
+  const firstOperand = traverse(node.left);
+  const secondOperand = traverse(node.right);
+
+  switch (node.value) {
+    case -1:
+      return firstOperand + secondOperand;
+    case -2:
+      return firstOperand - secondOperand;
+    case -3:
+      return firstOperand / secondOperand < 0
+        ? Math.ceil(firstOperand / secondOperand)
+        : Math.floor(firstOperand / secondOperand);
+    case -4:
+      return firstOperand * secondOperand;
+  }
+}
+
+function evaluateExpressionTree(tree) {
+  const result = traverse(tree);
+  return result;
+}
