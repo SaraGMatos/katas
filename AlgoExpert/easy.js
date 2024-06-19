@@ -347,6 +347,8 @@ function traverse(node) {
     case -2:
       return firstOperand - secondOperand;
     case -3:
+      // If the result is negative, we need to round up (closer to 0)
+      // If the result is positive, we need to round down (closer to 0)
       return firstOperand / secondOperand < 0
         ? Math.ceil(firstOperand / secondOperand)
         : Math.floor(firstOperand / secondOperand);
