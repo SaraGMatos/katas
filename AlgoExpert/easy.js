@@ -329,3 +329,5 @@ function nodeDepths2(root, depth = 0) {
     depth + nodeDepths(root.left, depth + 1) + nodeDepths(root.right, depth + 1)
   );
 }
+
+//! EVALUATE EXPRESSION TREE
