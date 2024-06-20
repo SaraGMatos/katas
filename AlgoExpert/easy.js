@@ -381,6 +381,8 @@ function evaluateExpressionTree2(tree) {
   }
 
   if (tree.value === -3) {
+    // If the result is negative, we need to round up (closer to 0)
+    // If the result is positive, we need to round down (closer to 0)
     return leftValue / rightValue < 0
       ? Math.ceil(leftValue / rightValue)
       : Math.floor(leftValue / rightValue);
